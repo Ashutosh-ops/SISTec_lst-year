@@ -1,0 +1,409 @@
+//122.Default constructor
+#include<iostream>
+using namespace std;
+class A
+{
+	private:
+		int x,y;
+	public:
+		A()
+		{
+			int x,y;
+			cout<<"you are in default constructor\n"<<endl;
+			cout<<"enter two numbers\n";
+			cin>>x>>y;
+			cout<<"x="<<x<<"\ny= "<<y<<"\n";
+		}
+};
+int main()
+{
+	A a1;
+	return 0;
+}
+
+
+//123.Destructor
+
+#include<iostream>
+using namespace std;
+class A
+{
+	private:
+		int x,y;
+	public:
+		A(int a,int b)
+		{
+			int x=a,y=b;
+			cout<<"x="<<x<<"\ny="<<y<<"\n";
+		}	
+	~A()
+	{
+		cout<<"Destructor initialized\n";
+	}
+};
+int main()
+{
+	int a,b;	
+	cout<<"enter two numbers\n";
+	cin>>a>>b;
+	A a1(a,b);
+	return 0;
+}
+
+//124.class
+
+#include<iostream>
+using namespace std;
+classA
+{
+	private:
+		int x,y;
+	public:
+		void getdata()
+		{
+			cout<<"enter numbers\n";		
+			cin>>x>>y;
+		}
+		void display()
+		{
+			cout<<"output="<<x+y<<endl;
+		}
+};
+int main()
+{
+	A a1;
+	a1.getdata();
+	a1.display();
+	return 0;
+}
+
+//125.Ultra Unique Pattern
+
+#include<stdio.h>
+int main()
+{
+	int num,r,c,n,m,p,q=6;
+	printf("enter a order for pattern\n");
+	scanf("%d",&num);
+	for(r=1; r<=num; r++,q-=2)
+	{
+		for(c=1; c<=r; c++)
+		{
+		  printf("%d",c);
+		}
+		for(p=q; p>=1; p--)
+		{
+		  printf("%d",r);
+		}
+		for(c=r-1; c>=1; c--)
+		{
+		  printf("%d",c);
+		}
+		printf("\n");
+	}
+	for(r=3,m=1; r>=1; r--,m+=2)
+	{
+		for(c=1; c<=r; c++)
+		{
+		  printf("%d",c);
+		}
+		for(n=m; n>=1; n--)
+		{
+		  printf("%d",r);
+		}
+		for(c=r; c>=1; c--)
+		{
+		  printf("%d",c);
+		}
+		printf("\n");
+	}
+	return 0;
+}
+
+//126.Object Memory Allocation
+
+#include<iostream>
+
+using namespace std;
+
+class shop
+{
+	int itemid[100];
+	int itemprice[100];
+	int count;
+//	static int count =1;
+	public:
+	  void getprice(void);
+	  void increase(void){count=0;}
+	  void setprice(void);
+};
+void shop :: getprice(void)
+{
+	cout <<"enter the id of item no. "<<count+1<<endl;
+	cin >>itemid[count];
+	cout <<"enter the pricse of item "<<endl;
+	cin >>itemprice[count];
+	count++;
+}
+void shop :: setprice(void)
+{
+	cout<<endl<<endl;
+	for(int i=0 ; i<count; i++)
+	{
+		cout <<"the price of item with item id "<<itemid[i]+1<<" is "<<itemprice[i]<<endl;
+	}
+}
+int main()
+{
+	shop Ankit;
+	Ankit.increase();
+	int a;
+	cout <<"Enter the total no. of items"<<endl;
+	cin>>a;
+	for(int i=0; i<a; i++)
+	{
+		Ankit.getprice();
+	}
+	Ankit.setprice();
+	return 0;
+}
+
+//127. Static Data member
+
+/* Developer : Ankit vishwakarma
+Dated : 20/04/2020
+Organization : SISTec	*/
+
+#include<iostream>
+//#include<string>
+
+using namespace std;
+
+class Employee
+{
+	int id;
+
+	static int count;
+//	int a;
+//	string s;
+	public:
+//		void loop(){a=0;}
+		void set(void);
+		void display(void);
+};
+int Employee :: count=0;
+
+void Employee :: set(void)
+{
+//	loop();
+	count++;
+	cout <<"enter the id of employee"<<endl;
+	cin >>id;
+//	cout <<"Enter the name of employee"<<endl;
+//	cin >>s;
+//	display();
+}
+void Employee :: display()
+{
+//or(int i=0; i<a; i++)
+//
+		cout << "the id of employee no "<<count+1<<" is "<<id<<endl;
+//
+}
+int main()
+{
+	Employee Ankit,Gun,Chand;
+	
+	Ankit.set();
+	Ankit.display();
+
+	Gun.set();
+	Gun.display();
+
+	Chand.set();
+	Chand.display();
+		
+	return 0;
+}
+
+//128.Bubble sorting
+
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int i,j,k,n,b;
+	printf("enter the array size\n");
+	scanf("%d",&n);
+	int a[n];
+	printf("enter the array elements\n");
+	for(i=0; i<n; i++)
+	{
+		scanf("%d",&a[i]);
+	}
+
+	for(i=0; i<n-1; i++)
+	{
+		printf("\niteration %d\n",i+1);
+		for(j=0; j<n+1-i; j++)
+		{
+			if(a[j]>a[j+1])
+			{
+				b=a[j];
+				a[j]=a[j+1];
+				a[j+1]=b;
+			}
+		printf("\n");
+		for(k=0; k<n; k++)
+		{
+		  printf("%d\t",a[k]);
+		}
+		}
+	}
+	printf("\nthe shorted array is : \n\n");
+	for(i=0; i<n; i++)
+	{
+		printf("%d\t",a[i]);
+	}printf("\n");
+	return 0;
+}
+
+// 129.complex Object
+
+#include<iostream>
+
+using namespace std;
+
+class complex
+{
+	int a,b;
+	public:
+	  void setdata (int u, int v){a=u; b=v;}
+  	  void display (void){cout<<"the complex number is "<<a<<" + "<<b<<"i"<<endl;}
+	  void sum (complex c1 , complex c2);
+};
+
+void complex :: sum(complex c1 , complex c2)
+{
+	a = c1.a + c2.a;
+	b = c1.b + c2.b;
+}	
+
+int main()
+{
+	complex c1,c2,c3;
+	 c1.setdata(2,3);
+	 c1.display();
+
+	 c2.setdata(4,5);
+	 c2.display();
+
+	 c3.sum(c1,c2);
+	 c3.display();
+	
+	 return 0;
+}
+
+
+// 130.Complex return type
+
+/*
+Developer : Ashutosh Gupta
+
+Dated : 20/04/2020
+
+Aim : To represent complex class    */
+
+#include<iostream>
+
+using namespace std;
+class complex
+{
+	int a,b;
+	public:
+    	   void setdata(int u , int v); 
+	   void display();
+	   friend complex sumcomplex(complex c1 , complex c2);
+};
+void complex :: setdata(int u , int v)
+{
+	a=u;
+	b=v;
+}
+void complex :: display()
+{
+	cout<<a<<" + "<<b<<" i "<<endl;
+}
+complex sumcomplex(complex c1 , complex c2)
+{
+	complex c3;
+	c3.setdata((c1.a + c2.a) , (c1.b + c2.b));
+	return c3;
+}
+int main()
+{
+	complex c1,c2,c3,sum;
+	c1.setdata(2,3);
+	c1.display();
+	
+	c2.setdata(4,6);
+	c2.display();
+	
+	cout<<"----------"<<endl;
+	sum = sumcomplex(c1,c2);
+	sum.display();
+	
+	return 0;
+}
+
+
+//131.Class overloading 
+
+#include<iostream> 
+#include <boost/multiprecision/cpp_dec_float.hpp> 
+#include <boost/math/constants/constants.hpp> 
+  
+using boost::multiprecision::cpp_dec_float_50; 
+  
+using namespace std; 
+  
+template<typename T> 
+inline T area_of_a_circle(T r) 
+{   
+   // pi represent predefined constant having value 
+   // 3.1415926535897932384... 
+   using boost::math::constants::pi; 
+   return pi<T>() * r * r; 
+} 
+  
+int main() 
+{ 
+    float radius_f = 123.0/ 100; 
+    float area_f = area_of_a_circle(radius_f); 
+  
+    double radius_d = 123.0 / 100; 
+    double area_d = area_of_a_circle(radius_d); 
+  
+    cpp_dec_float_50 r_mp = 123.0 / 100; 
+    cpp_dec_float_50 area_mp = area_of_a_circle(r_mp); 
+  
+    // numeric_limits::digits10 represent the number 
+    // of decimal digits that can be held of particular 
+    // data type without any loss. 
+      
+    // Area by using float data type 
+    cout << "Float: "
+         << setprecision(numeric_limits<float>::digits10) 
+         << area_f << endl; 
+  
+    // Area by using double data type 
+    cout << "Double: "
+         <<setprecision(numeric_limits<double>::digits10) 
+         << area_d << endl; 
+  
+    // Area by using Boost Multiprecision  
+    cout << "Boost Multiprecision: "
+         << setprecision(numeric_limits<cpp_dec_float_50>::digits10) 
+         << area_mp << endl; 
+    return 0; 
+}
